@@ -1,0 +1,10 @@
+ - DOMAIN 
+    - USECASES
+ - INFRA
+    - REPOSITORIES
+ - MAIN    
+    - ROUTES
+    - MIDWARES
+ - PRESENTATION
+    - ROUTERS
+ - UTILS
