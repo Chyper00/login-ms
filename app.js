@@ -27,6 +27,60 @@ app.get('/', async (req, res) => {
   res.status(200).send('ok');
 });
 
+app.post('/simpleRegister', async (req, res) => {
+  const { email, password } = req.body;
+  if (!(email && password)) {
+    res.status(400).send('All input is required');
+  }
+  const user = await User.create({
+    email: email,
+    password: password,
+  });
+  res.status(201).json(user);
+});
+
+// class addAccountRepository {
+//   async add(email, password) {
+//     const user = await User.create({
+//       email: email,
+//       password: password,
+//     });
+
+//     return user;
+//   }
+// }
+// class SignUpUseCase {
+//   async singUp(email, password) {
+//     if (!(email && password)) {
+//       throw err;
+//     }
+//     new addAccountRepository.add(email, password);
+//   }
+// }
+// class SignUpRouter {
+//   async route(req, res) {
+//     const { email, password } = req.body;
+//     new SignUpUseCase().singUp(email, password);
+//     res.status(201).json(user);
+//   }
+// }
+
+// app.post('/simpleRegister', new SignUpRouter().route);
+
+// app.post('/simpleRegister', async (req, res) => {
+//   const { email, password } = req.body;
+//   if (!(email && password)) {
+//     res.status(400).send('All input is required');
+//   }
+//   const user = await User.create({
+//     email: email,
+//     password: password,
+//   });
+//   res.status(201).json(user);
+// });
+
+//----------------------------------/
+
 app.post('/register', async (req, res) => {
   try {
     // Get user input
