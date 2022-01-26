@@ -6,10 +6,22 @@ const jwt = require('jsonwebtoken');
 
 const User = require('./model/user');
 const auth = require('./middleware/auth');
+const singUpuseCase = require('./use_cases/sing_up_use_case');
 
 const app = express();
 
 app.use(express.json({ limit: '50mb' }));
+
+
+class singUpRoute {
+  async route(req, res) {
+    const { email, password } = req.body;
+    const user = await new singUpuseCase().singUp(email, password);
+    res.status(201).json(user);
+  }
+}
+
+app.post('/simpleRegister', new singUpRoute().route);
 
 app.get('/', async (req, res) => {
   res.status(200).send('ok');
