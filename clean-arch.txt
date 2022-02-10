@@ -8,3 +8,11 @@
  - PRESENTATION
     - ROUTERS
  - UTILS
+
+
+todo
+   - add linter
+   - add commit linter
+   - add husk-pre
+   - add swagger https://petstore.swagger.io/?_ga=2.233931614.1383808219.1644493839-955483479.1644493839#/
+   - add typescript
